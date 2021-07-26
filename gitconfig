@@ -1,0 +1,71 @@
+[user]
+	email = liangchao.lc@alibaba-inc.com
+	name = liangchao.lc
+[color]
+	diff = auto
+	branch = auto
+	status = auto
+	interactive = auto
+[core]
+	editor = code --wait
+	excludesfile = ~/.gitignore_global
+[alias]
+	st = status
+	stn = status -uno
+	co = checkout
+	ct = commit
+	ca = commit --amend
+	ci = commit --verbose
+	df = diff
+	br = branch
+	cp = cherry-pick
+	unstage = reset HEAD --
+	dt = difftool
+	dtd = difftool --dir-diff
+	mt = mergetool
+	show-graph = log --graph --abbrev-commit --pretty=oneline
+	l = log --color --graph --decorate --pretty=oneline --abbrev-commit
+	l0 = log --color --graph --decorate --pretty=oneline --abbrev-commit -U0
+	la = log --color --graph --decorate --pretty=oneline --abbrev-commit --all
+	lb = log --color --graph --decorate --pretty=oneline --abbrev-commit --all --simplify-by-decoration
+	lg = log --color --graph --decorate
+	dl = log --date-order --color --graph --decorate --pretty=oneline --abbrev-commit
+	dla = log --date-order --color --graph --decorate --pretty=oneline --abbrev-commit --all
+	dlb = log --date-order --color --graph --decorate --pretty=oneline --abbrev-commit --all --simplify-by-decoration
+	dlg = log --date-order --color --graph --decorate
+	d = diff --color
+	dc = diff --color --cached
+	d0 = diff --color --unified=0
+[diff]
+	tool = ediff
+[difftool "ediff"]
+	cmd = ~/bin/ediff2.sh $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+[merge]
+	tool = ediff
+[mergetool "ediff"]
+	cmd = ~/bin/ediff.sh $LOCAL $REMOTE $MERGED $BASE
+	trustExitCode = true
+[http]
+	cookiefile = ~/.gitcookies
+[difftool]
+	prompt = false
+[github]
+	user = 2770862886
+[gpg]
+	program = /usr/local/bin/gpg
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[pull]
+	rebase = true
+[url "https://github.com.cnpmjs.org/"]
+	insteadof = https://github.com/
